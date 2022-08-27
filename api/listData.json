@@ -1,0 +1,26 @@
+[
+    {
+      "entrada": "Entrada",
+      "value": 299.99,
+      "date": "25/07/2022",
+      "tag": "Bolsa estudantil"
+    },
+    {
+      "entrada": "Saida",
+      "value": 299.99,
+      "date": "25/07/2022",
+      "tag": "Lustra tentaculo"
+    },
+    {
+      "entrada": "Entrada",
+      "value": 299.99,
+      "date": "25/07/2022",
+      "tag": "Bolsa estudantil"
+    },
+    {
+      "entrada": "Saida",
+      "value": 299.99,
+      "date": "25/07/2022",
+      "tag": "Lustra tentaculo"
+    }
+  ]
