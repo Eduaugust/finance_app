@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:finance_app/shared/themes/app_colors.dart';
 import 'package:finance_app/shared/themes/app_text_style.dart';
+import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {
-  final entrance;
-  final value;
-  final description;
-  final date;
+  final String entrance;
+  final String value;
+  final String description;
+  final String date;
 
   const ListItem(
       {Key? key,

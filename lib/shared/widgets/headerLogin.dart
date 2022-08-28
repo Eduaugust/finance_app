@@ -15,10 +15,10 @@ class HeaderLogin extends StatelessWidget {
         IntrinsicWidth(
           child: Column(
             children: [
-              Text('Controle financeiro ', style: AppTextStyle.regular32),
+              Text('Controle financeiro ', style: AppTextStyle.regular28),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Expanded(
                     flex: 65,
                     child: Container(
@@ -28,7 +28,7 @@ class HeaderLogin extends StatelessWidget {
                       height: 3,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Expanded(
                     flex: 6,
                     child: Container(
@@ -38,7 +38,7 @@ class HeaderLogin extends StatelessWidget {
                       height: 3,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Expanded(
                     flex: 2,
                     child: Container(

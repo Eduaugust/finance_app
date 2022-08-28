@@ -27,7 +27,7 @@ class _HistoryState extends State<History> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Histórico Deste Mês', style: AppTextStyle.header16),
+              Text('Histórico Deste Mês', style: AppTextStyle.header),
               ElevatedButton(
                 style: TextButton.styleFrom(
                     padding: const EdgeInsets.only(

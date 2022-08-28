@@ -1,4 +1,3 @@
-import 'package:finance_app/modules/home/home_page.dart';
 import 'package:finance_app/modules/sign_up/sign_up_page.dart';
 import 'package:finance_app/shared/themes/app_colors.dart';
 import 'package:flutter/material.dart';

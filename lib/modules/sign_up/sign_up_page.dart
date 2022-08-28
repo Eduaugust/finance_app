@@ -25,8 +25,8 @@ class SignUpPage extends StatelessWidget {
                 const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30),
             child: Column(
               children: [
-                HeaderLogin(),
-                SizedBox(height: 10),
+                const HeaderLogin(),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(
@@ -42,7 +42,7 @@ class SignUpPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text('Organize seu futuro',
-                                    style: AppTextStyle.header24),
+                                    style: AppTextStyle.header22),
                                 const DottedDivder(),
                                 const SizedBox(height: 10),
                                 Text('Tenha acesso as suas',
@@ -59,7 +59,7 @@ class SignUpPage extends StatelessWidget {
                                 const Divider(color: AppColors.stroke),
                                 const SizedBox(height: 10),
                                 Text('Cadastre-se',
-                                    style: AppTextStyle.header24),
+                                    style: AppTextStyle.header22),
                                 Form(
                                     key: _formKey,
                                     child: Column(
@@ -67,114 +67,106 @@ class SignUpPage extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         // Email
+                                        const SizedBox(height: 5),
                                         Text("Email",
                                             style: AppTextStyle.regular),
-                                        Container(
-                                          height: 55,
-                                          child: TextFormField(
-                                            style: AppTextStyle.light,
-                                            decoration: InputDecoration(
-                                              hintText: 'olaph@bytejr.com',
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                  color: AppColors.stroke,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
+                                        TextFormField(
+                                          style: AppTextStyle.light,
+                                          decoration: InputDecoration(
+                                            hintText: 'olaph@bytejr.com',
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: AppColors.stroke,
                                               ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                  color: AppColors.stroke,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
                                             ),
-                                            validator: (value) {
-                                              if (value == null ||
-                                                  value.isEmpty) {
-                                                return 'email can\'t be empty';
-                                              }
-                                              bool emailValid = RegExp(
-                                                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                                                  .hasMatch(value);
-                                              return emailValid
-                                                  ? null
-                                                  : "Invalid email";
-                                            },
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: AppColors.stroke,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
                                           ),
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'email can\'t be empty';
+                                            }
+                                            bool emailValid = RegExp(
+                                                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                                                .hasMatch(value);
+                                            return emailValid
+                                                ? null
+                                                : "Invalid email";
+                                          },
                                         ),
                                         // Senha
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Text("Senha",
                                             style: AppTextStyle.regular),
-                                        Container(
-                                          height: 55,
-                                          child: TextFormField(
-                                            style: AppTextStyle.light,
-                                            decoration: InputDecoration(
-                                              hintText: '**************',
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                  color: AppColors.stroke,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
+                                        TextFormField(
+                                          style: AppTextStyle.light,
+                                          decoration: InputDecoration(
+                                            hintText: '**************',
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: AppColors.stroke,
                                               ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                  color: AppColors.stroke,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
                                             ),
-                                            validator: (value) {
-                                              if (value == null ||
-                                                  value.isEmpty) {
-                                                return 'Password can\'t be empty';
-                                              }
-                                              return null;
-                                            },
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: AppColors.stroke,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
                                           ),
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Password can\'t be empty';
+                                            }
+                                            return null;
+                                          },
                                         ),
                                         // Confirme a senha
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Text("Confirme a senha",
                                             style: AppTextStyle.regular),
-                                        Container(
-                                          height: 55,
-                                          child: TextFormField(
-                                            style: AppTextStyle.light,
-                                            decoration: InputDecoration(
-                                              hintText: '**************',
-                                              enabledBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                  color: AppColors.stroke,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
+                                        TextFormField(
+                                          style: AppTextStyle.light,
+                                          decoration: InputDecoration(
+                                            hintText: '**************',
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: AppColors.stroke,
                                               ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: const BorderSide(
-                                                  color: AppColors.stroke,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
                                             ),
-                                            validator: (value) {
-                                              if (value == null ||
-                                                  value.isEmpty) {
-                                                return 'Password can\'t be empty';
-                                              }
-
-                                              return null;
-                                            },
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: AppColors.stroke,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                            ),
                                           ),
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Password can\'t be empty';
+                                            }
+
+                                            return null;
+                                          },
                                         ),
 
-                                        const SizedBox(height: 10),
+                                        const SizedBox(height: 15),
 
                                         // Cadastrar
 
@@ -219,8 +211,11 @@ class SignUpPage extends StatelessWidget {
                                             ),
                                           ),
                                         ),
+
+                                        // Ja possui uma conta??
                                         Container(
-                                          decoration: BoxDecoration(
+                                          margin: const EdgeInsets.only(top: 5),
+                                          decoration: const BoxDecoration(
                                               border: Border(
                                                   bottom: BorderSide(
                                             color: AppColors.blue1,
@@ -280,7 +275,7 @@ class DottedDivder extends StatelessWidget {
               height: 3,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Expanded(
             flex: 65,
             child: Container(

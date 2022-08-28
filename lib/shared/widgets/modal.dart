@@ -1,6 +1,5 @@
 import 'package:finance_app/modules/home/home_controlle.dart';
 import 'package:finance_app/shared/themes/app_colors.dart';
-import 'package:finance_app/shared/themes/app_images.dart';
 import 'package:finance_app/shared/themes/app_text_style.dart';
 import "package:flutter/material.dart";
 import "package:flutter/cupertino.dart";
@@ -23,7 +22,7 @@ class _ModalState extends State<Modal> {
     final size = MediaQuery.of(context).size;
     final _formKey = GlobalKey<FormState>();
     return Container(
-      constraints: BoxConstraints(maxWidth: 870),
+      constraints: const BoxConstraints(maxWidth: 870),
       margin: const EdgeInsets.all(22),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
@@ -34,7 +33,7 @@ class _ModalState extends State<Modal> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Titulo
-          Text('Cadastrar novo ativo', style: AppTextStyle.header20),
+          Text('Cadastrar novo ativo', style: AppTextStyle.header18),
           const SizedBox(height: 10),
 
           Row(
@@ -79,7 +78,7 @@ class _ModalState extends State<Modal> {
                         width: size.width * 0.35,
                         height: 55,
                         padding: const EdgeInsets.all(3),
-                        constraints: BoxConstraints(maxWidth: 225),
+                        constraints: const BoxConstraints(maxWidth: 225),
                         child: TextFormField(
                           style: AppTextStyle.light,
                           decoration: InputDecoration(
@@ -102,7 +101,7 @@ class _ModalState extends State<Modal> {
                               return 'Entre com um valor válido';
                             }
                             try {
-                              double new_value = double.parse(value);
+                              double.parse(value);
                             } catch (e) {
                               return 'Digite apenas números';
                             }
@@ -114,7 +113,7 @@ class _ModalState extends State<Modal> {
                         width: size.width * 0.35,
                         height: 55,
                         padding: const EdgeInsets.all(3),
-                        constraints: BoxConstraints(maxWidth: 225),
+                        constraints: const BoxConstraints(maxWidth: 225),
                         child: TextFormField(
                           style: AppTextStyle.light,
                           decoration: InputDecoration(
@@ -149,7 +148,7 @@ class _ModalState extends State<Modal> {
                         width: size.width * 0.35,
                         height: 55,
                         padding: const EdgeInsets.all(3),
-                        constraints: BoxConstraints(maxWidth: 225),
+                        constraints: const BoxConstraints(maxWidth: 225),
                         child: TextFormField(
                           style: AppTextStyle.light,
                           decoration: InputDecoration(
@@ -180,7 +179,7 @@ class _ModalState extends State<Modal> {
                         width: size.width * 0.35,
                         height: 55,
                         padding: const EdgeInsets.all(3),
-                        constraints: BoxConstraints(maxWidth: 225),
+                        constraints: const BoxConstraints(maxWidth: 225),
                         child: TextFormField(
                           style: AppTextStyle.light,
                           decoration: InputDecoration(
@@ -203,7 +202,7 @@ class _ModalState extends State<Modal> {
                               return 'Entre com um valor válido';
                             }
                             try {
-                              int new_value = int.parse(value);
+                              int.parse(value);
                             } catch (e) {
                               return 'Digite apenas números';
                             }
@@ -252,6 +251,7 @@ class _ModalState extends State<Modal> {
                         ),
                       ),
                       TextButton(
+                        onPressed: closeModal,
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
@@ -260,12 +260,11 @@ class _ModalState extends State<Modal> {
                               width: 2,
                             ),
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.close_rounded,
                             color: AppColors.blue2,
                           ),
                         ),
-                        onPressed: closeModal,
                       ),
                     ],
                   ),

@@ -19,7 +19,7 @@ class Balance extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Total do mês atual", style: AppTextStyle.header20),
+                Text("Total do mês atual", style: AppTextStyle.header18),
               ],
             ),
             Row(
@@ -35,7 +35,7 @@ class Balance extends StatelessWidget {
                         color: AppColors.v2,
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Text('299,99R\$', style: AppTextStyle.header20),
+                      child: Text('299,99R\$', style: AppTextStyle.header18),
                     ),
                   ],
                 ),
@@ -50,7 +50,7 @@ class Balance extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child:
-                            Text('-199,99R\$', style: AppTextStyle.header20)),
+                            Text('-199,99R\$', style: AppTextStyle.header18)),
                   ],
                 ),
               ],

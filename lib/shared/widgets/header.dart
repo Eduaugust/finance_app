@@ -31,7 +31,7 @@ class Header extends StatelessWidget {
         Column(crossAxisAlignment: CrossAxisAlignment.end, children: <Widget>[
           Text(
             'Olaph Jr',
-            style: AppTextStyle.header16,
+            style: AppTextStyle.header,
           ),
           Text(
             'Olaph@bytejr.com',
