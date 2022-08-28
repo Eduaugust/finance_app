@@ -1,9 +1,16 @@
 import 'package:finance_app/modules/home/home_page.dart';
 import 'package:finance_app/shared/themes/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:finance_app/modules/home/home_controlle.dart';
 
 void main() {
-  runApp(const Start());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => HomeController(),
+      child: const Start(),
+    ),
+  );
 }
 
 class Start extends StatelessWidget {
@@ -11,8 +18,9 @@ class Start extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      theme: ThemeData(primaryColor: AppColors.stroke),
+      home: const HomePage(),
     );
   }
 }

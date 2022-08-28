@@ -45,9 +45,11 @@ class ListItem extends StatelessWidget {
               ),
             ],
           ),
-          TextButton(
+          TextButton.icon(
+            label: Container(),
+            style: TextButton.styleFrom(backgroundColor: AppColors.white),
             onPressed: () {},
-            child: const Icon(
+            icon: const Icon(
               Icons.delete_forever_outlined,
               color: AppColors.blue1,
             ),

@@ -2,10 +2,17 @@ import 'package:finance_app/shared/themes/app_colors.dart';
 import 'package:finance_app/shared/themes/app_text_style.dart';
 import 'package:finance_app/shared/widgets/listItem.dart';
 import 'package:flutter/material.dart';
+import 'package:finance_app/modules/home/home_controlle.dart';
+import 'package:provider/provider.dart';
 
-class History extends StatelessWidget {
+class History extends StatefulWidget {
   const History({Key? key}) : super(key: key);
 
+  @override
+  State<History> createState() => _HistoryState();
+}
+
+class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,13 +28,15 @@ class History extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Histórico Deste Mês', style: AppTextStyle.header16),
-              TextButton(
+              ElevatedButton(
                 style: TextButton.styleFrom(
                     padding: const EdgeInsets.only(
                         right: 5, left: 5, top: 10, bottom: 10),
                     backgroundColor: AppColors.blue2),
                 onPressed: () {
                   // Open Modal
+                  Provider.of<HomeController>(context, listen: false)
+                      .setIsModal(true);
                 },
                 child: Row(
                   children: [
@@ -36,7 +45,7 @@ class History extends StatelessWidget {
                       style: AppTextStyle.addButton,
                     ),
                     const Icon(
-                      Icons.add,
+                      Icons.add_rounded,
                       color: AppColors.white,
                       size: 35,
                     )

@@ -10,6 +10,8 @@ class AppTextStyle {
   );
   static final light24 =
       GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 24);
+  static final regular20 =
+      GoogleFonts.poppins(fontWeight: FontWeight.w300, fontSize: 20);
   static final regular24 =
       GoogleFonts.poppins(fontWeight: FontWeight.w300, fontSize: 24);
   static final regular32 = GoogleFonts.poppins(
