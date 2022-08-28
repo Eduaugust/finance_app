@@ -51,7 +51,7 @@ class _ModalState extends State<Modal> {
                   // Entrada ou Saida
                   Row(
                     children: [
-                      Text('Entrada', style: AppTextStyle.regular20),
+                      Text('Entrada', style: AppTextStyle.regular18),
                       Consumer<HomeController>(
                         builder: (context, controller, child) =>
                             Transform.scale(
@@ -68,7 +68,7 @@ class _ModalState extends State<Modal> {
                           ),
                         ),
                       ),
-                      Text('Saída', style: AppTextStyle.regular20),
+                      Text('Saída', style: AppTextStyle.regular18),
                     ],
                   ),
 
