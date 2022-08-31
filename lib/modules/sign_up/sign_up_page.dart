@@ -22,7 +22,7 @@ class SignUpPage extends StatelessWidget {
           ),
           child: Padding(
             padding:
-                const EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 30),
+                const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 10),
             child: Column(
               children: [
                 const HeaderLogin(),
@@ -46,9 +46,9 @@ class SignUpPage extends StatelessWidget {
                                 const DottedDivder(),
                                 const SizedBox(height: 10),
                                 Text('Tenha acesso as suas',
-                                    style: AppTextStyle.regular18),
+                                    style: AppTextStyle.subtitulo),
                                 Text('finanças em qualquer lugar',
-                                    style: AppTextStyle.regular18),
+                                    style: AppTextStyle.subtitulo),
                               ],
                             ),
 
@@ -58,8 +58,10 @@ class SignUpPage extends StatelessWidget {
                               children: [
                                 const Divider(color: AppColors.stroke),
                                 const SizedBox(height: 10),
+                                // Titulo de cadastrese
                                 Text('Cadastre-se',
                                     style: AppTextStyle.header22),
+                                // O formulario
                                 Form(
                                     key: _formKey,
                                     child: Column(
@@ -107,6 +109,7 @@ class SignUpPage extends StatelessWidget {
                                         Text("Senha",
                                             style: AppTextStyle.regular),
                                         TextFormField(
+                                          obscureText: true,
                                           style: AppTextStyle.light,
                                           decoration: InputDecoration(
                                             hintText: '**************',
@@ -138,6 +141,7 @@ class SignUpPage extends StatelessWidget {
                                         Text("Confirme a senha",
                                             style: AppTextStyle.regular),
                                         TextFormField(
+                                          obscureText: true,
                                           style: AppTextStyle.light,
                                           decoration: InputDecoration(
                                             hintText: '**************',
@@ -170,44 +174,37 @@ class SignUpPage extends StatelessWidget {
 
                                         // Cadastrar
 
-                                        IntrinsicWidth(
-                                          child: SizedBox(
-                                            height: 35,
-                                            child: ElevatedButton(
-                                              style: TextButton.styleFrom(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          right: 5,
-                                                          left: 5,
-                                                          top: 10,
-                                                          bottom: 10),
-                                                  backgroundColor:
-                                                      AppColors.blue2),
-                                              onPressed: () {
-                                                if (_formKey.currentState!
-                                                    .validate()) {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    const SnackBar(
-                                                        content: Text(
-                                                            'Processing Data')),
-                                                  );
-                                                }
-                                              },
-                                              child: Row(
-                                                children: [
-                                                  Text(
-                                                    'Cadastrar',
-                                                    style:
-                                                        AppTextStyle.addButton,
-                                                  ),
-                                                  const Icon(
-                                                    Icons.done_rounded,
-                                                    color: AppColors.white,
-                                                    size: 16,
-                                                  ),
-                                                ],
-                                              ),
+                                        SizedBox(
+                                          height: 35,
+                                          width: 105,
+                                          child: ElevatedButton(
+                                            style: TextButton.styleFrom(
+                                                padding: const EdgeInsets.only(
+                                                    right: 5,
+                                                    left: 5,
+                                                    top: 10,
+                                                    bottom: 10),
+                                                backgroundColor:
+                                                    AppColors.blue2),
+                                            onPressed: () {
+                                              if (_formKey.currentState!
+                                                  .validate()) {
+                                                Navigator.pushReplacementNamed(
+                                                    context, '/home');
+                                              }
+                                            },
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  'Cadastrar',
+                                                  style: AppTextStyle.addButton,
+                                                ),
+                                                const Icon(
+                                                  Icons.done_rounded,
+                                                  color: AppColors.white,
+                                                  size: 16,
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ),

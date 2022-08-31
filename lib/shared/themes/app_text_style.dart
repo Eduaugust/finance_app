@@ -7,7 +7,9 @@ class AppTextStyle {
     fontWeight: FontWeight.w300,
   );
 
-  static final regular18 =
+  static final subtitulo =
+      GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 16);
+  static final entradaSaida =
       GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 18);
   static final regular = GoogleFonts.poppins(fontWeight: FontWeight.w400);
 
