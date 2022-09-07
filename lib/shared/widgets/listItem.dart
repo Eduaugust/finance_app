@@ -7,13 +7,15 @@ class ListItem extends StatelessWidget {
   final String value;
   final String description;
   final String date;
+  final VoidCallback deleteItem;
 
   const ListItem(
       {Key? key,
       required this.entrance,
       required this.value,
       required this.date,
-      required this.description})
+      required this.description,
+      required this.deleteItem})
       : super(key: key);
 
   @override
@@ -29,7 +31,10 @@ class ListItem extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(entrance, style: AppTextStyle.light),
+                  Text(entrance,
+                      style: (entrance == 'Entrada')
+                          ? AppTextStyle.listItemEntrada
+                          : AppTextStyle.listItemSaida),
                   Text("${value}R\$", style: AppTextStyle.light),
                 ],
               ),
@@ -48,7 +53,7 @@ class ListItem extends StatelessWidget {
           TextButton.icon(
             label: Container(),
             style: TextButton.styleFrom(backgroundColor: AppColors.white),
-            onPressed: () {},
+            onPressed: deleteItem,
             icon: const Icon(
               Icons.delete_forever_outlined,
               color: AppColors.blue1,

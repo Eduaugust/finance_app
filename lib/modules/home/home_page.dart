@@ -7,6 +7,7 @@ import 'package:finance_app/modules/modal/modal.dart';
 import 'package:finance_app/shared/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../../shared/models/entrada_model.dart';
 import '../../shared/themes/app_text_style.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,10 +19,14 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ModalController modalController = ModalController();
+  final HomeController homeController = HomeController();
   @override
   void initState() {
     super.initState();
     modalController.addListener(() {
+      setState(() {});
+    });
+    homeController.addListener(() {
       setState(() {});
     });
   }
@@ -31,6 +36,7 @@ class _HomePageState extends State<HomePage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           decoration: const BoxDecoration(
@@ -161,7 +167,21 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 margin:
                                     const EdgeInsets.only(top: 10, bottom: 10),
-                                child: MyList(),
+                                child: ValueListenableBuilder(
+                                  valueListenable:
+                                      homeController.listaItemsNotifier,
+                                  builder: (_, entradas, __) {
+                                    if (entradas == null || entradas == []) {
+                                      return const Center(
+                                          child: Text(
+                                              "Adicione uma nova entrada"));
+                                    }
+                                    return MyList(
+                                        itemsListArray: entradas,
+                                        deleteItem:
+                                            homeController.deleteEntrance);
+                                  },
+                                ),
                               ),
                             )
                           ],

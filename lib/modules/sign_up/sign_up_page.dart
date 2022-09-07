@@ -11,6 +11,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           decoration: const BoxDecoration(
@@ -26,7 +27,7 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               children: [
                 const HeaderLogin(),
-                const SizedBox(height: 10),
+                const SizedBox(height: 60),
                 Row(
                   children: [
                     Expanded(
@@ -51,180 +52,199 @@ class SignUpPage extends StatelessWidget {
                                     style: AppTextStyle.subtitulo),
                               ],
                             ),
-
                             // Cadastre-se forms
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Divider(color: AppColors.stroke),
-                                const SizedBox(height: 10),
-                                // Titulo de cadastrese
-                                Text('Cadastre-se',
-                                    style: AppTextStyle.header22),
-                                // O formulario
-                                Form(
-                                    key: _formKey,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        // Email
-                                        const SizedBox(height: 5),
-                                        Text("Email",
-                                            style: AppTextStyle.regular),
-                                        TextFormField(
-                                          style: AppTextStyle.light,
-                                          decoration: InputDecoration(
-                                            hintText: 'olaph@bytejr.com',
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: AppColors.stroke,
+                            SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Divider(color: AppColors.stroke),
+                                  const SizedBox(height: 10),
+                                  // Titulo de cadastrese
+                                  Text('Cadastre-se',
+                                      style: AppTextStyle.header22),
+                                  // O formulario
+                                  Form(
+                                      key: _formKey,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          // Email
+                                          const SizedBox(height: 5),
+                                          Text("Email",
+                                              style: AppTextStyle.regular),
+                                          TextFormField(
+                                            keyboardType:
+                                                TextInputType.emailAddress,
+                                            style: AppTextStyle.light,
+                                            decoration: InputDecoration(
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 0,
+                                                      horizontal: 5),
+                                              hintText: 'olaph@bytejr.com',
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                  color: AppColors.stroke,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: AppColors.stroke,
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                  color: AppColors.stroke,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
                                             ),
-                                          ),
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return 'email can\'t be empty';
-                                            }
-                                            bool emailValid = RegExp(
-                                                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                                                .hasMatch(value);
-                                            return emailValid
-                                                ? null
-                                                : "Invalid email";
-                                          },
-                                        ),
-                                        // Senha
-                                        const SizedBox(height: 5),
-                                        Text("Senha",
-                                            style: AppTextStyle.regular),
-                                        TextFormField(
-                                          obscureText: true,
-                                          style: AppTextStyle.light,
-                                          decoration: InputDecoration(
-                                            hintText: '**************',
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: AppColors.stroke,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: AppColors.stroke,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                          ),
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return 'Password can\'t be empty';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        // Confirme a senha
-                                        const SizedBox(height: 5),
-                                        Text("Confirme a senha",
-                                            style: AppTextStyle.regular),
-                                        TextFormField(
-                                          obscureText: true,
-                                          style: AppTextStyle.light,
-                                          decoration: InputDecoration(
-                                            hintText: '**************',
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: AppColors.stroke,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
-                                                color: AppColors.stroke,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                          ),
-                                          validator: (value) {
-                                            if (value == null ||
-                                                value.isEmpty) {
-                                              return 'Password can\'t be empty';
-                                            }
-
-                                            return null;
-                                          },
-                                        ),
-
-                                        const SizedBox(height: 15),
-
-                                        // Cadastrar
-
-                                        SizedBox(
-                                          height: 35,
-                                          width: 105,
-                                          child: ElevatedButton(
-                                            style: TextButton.styleFrom(
-                                                padding: const EdgeInsets.only(
-                                                    right: 5,
-                                                    left: 5,
-                                                    top: 10,
-                                                    bottom: 10),
-                                                backgroundColor:
-                                                    AppColors.blue2),
-                                            onPressed: () {
-                                              if (_formKey.currentState!
-                                                  .validate()) {
-                                                Navigator.pushReplacementNamed(
-                                                    context, '/home');
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return 'email can\'t be empty';
                                               }
+                                              bool emailValid = RegExp(
+                                                      r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                                                  .hasMatch(value);
+                                              return emailValid
+                                                  ? null
+                                                  : "Invalid email";
                                             },
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  'Cadastrar',
-                                                  style: AppTextStyle.addButton,
+                                          ),
+                                          // Senha
+                                          const SizedBox(height: 5),
+                                          Text("Senha",
+                                              style: AppTextStyle.regular),
+                                          TextFormField(
+                                            obscureText: true,
+                                            style: AppTextStyle.light,
+                                            decoration: InputDecoration(
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 0,
+                                                      horizontal: 5),
+                                              hintText: '**************',
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                  color: AppColors.stroke,
                                                 ),
-                                                const Icon(
-                                                  Icons.done_rounded,
-                                                  color: AppColors.white,
-                                                  size: 16,
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                  color: AppColors.stroke,
                                                 ),
-                                              ],
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
+                                            ),
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return 'Password can\'t be empty';
+                                              }
+                                              return null;
+                                            },
+                                          ),
+                                          // Confirme a senha
+                                          const SizedBox(height: 5),
+                                          Text("Confirme a senha",
+                                              style: AppTextStyle.regular),
+                                          TextFormField(
+                                            obscureText: true,
+                                            style: AppTextStyle.light,
+                                            decoration: InputDecoration(
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      vertical: 3,
+                                                      horizontal: 5),
+                                              hintText: '**************',
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                  color: AppColors.stroke,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                  color: AppColors.stroke,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                              ),
+                                            ),
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.isEmpty) {
+                                                return 'Password can\'t be empty';
+                                              }
+
+                                              return null;
+                                            },
+                                          ),
+
+                                          const SizedBox(height: 15),
+
+                                          // Cadastrar
+
+                                          SizedBox(
+                                            height: 35,
+                                            width: 105,
+                                            child: ElevatedButton(
+                                              style: TextButton.styleFrom(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 5,
+                                                          left: 5,
+                                                          top: 10,
+                                                          bottom: 10),
+                                                  backgroundColor:
+                                                      AppColors.blue2),
+                                              onPressed: () {
+                                                if (_formKey.currentState!
+                                                    .validate()) {
+                                                  Navigator
+                                                      .pushReplacementNamed(
+                                                          context, '/home');
+                                                }
+                                              },
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    'Cadastrar',
+                                                    style:
+                                                        AppTextStyle.addButton,
+                                                  ),
+                                                  const Icon(
+                                                    Icons.done_rounded,
+                                                    color: AppColors.white,
+                                                    size: 16,
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
 
-                                        // Ja possui uma conta??
-                                        Container(
-                                          margin: const EdgeInsets.only(top: 5),
-                                          decoration: const BoxDecoration(
-                                              border: Border(
-                                                  bottom: BorderSide(
-                                            color: AppColors.blue1,
-                                            width: 1,
-                                          ))),
-                                          child: Text(
-                                              'Ja possui uma conta? entre agora',
-                                              style: AppTextStyle.light),
-                                        ),
-                                      ],
-                                    )),
-                              ],
+                                          // Ja possui uma conta??
+                                          Container(
+                                            margin:
+                                                const EdgeInsets.only(top: 5),
+                                            decoration: const BoxDecoration(
+                                                border: Border(
+                                                    bottom: BorderSide(
+                                              color: AppColors.blue1,
+                                              width: 1,
+                                            ))),
+                                            child: Text(
+                                                'Ja possui uma conta? entre agora',
+                                                style: AppTextStyle.light),
+                                          ),
+                                        ],
+                                      )),
+                                ],
+                              ),
                             ),
                           ],
                         ),

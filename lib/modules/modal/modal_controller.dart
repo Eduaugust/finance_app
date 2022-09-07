@@ -18,7 +18,7 @@ class ModalController extends ValueNotifier<bool> {
 }
 
 class FormController extends ChangeNotifier {
-  EntradaModel model = EntradaModel(isOutFlow: false);
+  EntradaModel model = EntradaModel(isOutFlow: true);
   ModalController modalController = ModalController();
   final formKey = GlobalKey<FormState>();
 
@@ -47,10 +47,10 @@ class FormController extends ChangeNotifier {
   }
 
   Future<void> saveEntrada() async {
-    final instance = await SharedPreferences.getInstance();
-    final entradas = instance.getStringList("entradas") ?? <String>[];
+    final prefs = await SharedPreferences.getInstance();
+    final entradas = prefs.getStringList("entradas") ?? <String>[];
     entradas.add(model.toJson());
-    await instance.setStringList('entradas', entradas);
+    await prefs.setStringList('entradas', entradas);
     return;
   }
 

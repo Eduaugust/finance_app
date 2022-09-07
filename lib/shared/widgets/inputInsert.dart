@@ -9,13 +9,15 @@ class InputInsert extends StatelessWidget {
   final TextEditingController? controller;
   final String? initialValue;
   final void Function(String value) onChanged;
+  final TextInputType? keyboardType;
   const InputInsert({
     Key? key,
-    required this.hintText,
-    required this.onChanged,
     this.validator,
+    required this.hintText,
     this.controller,
     this.initialValue,
+    required this.onChanged,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -26,11 +28,14 @@ class InputInsert extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       constraints: const BoxConstraints(maxWidth: 225),
       child: TextFormField(
+        keyboardType: keyboardType,
         onChanged: onChanged,
         controller: controller,
         initialValue: initialValue,
         style: AppTextStyle.light,
         decoration: InputDecoration(
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
           hintText: hintText,
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(

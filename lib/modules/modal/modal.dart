@@ -67,9 +67,9 @@ class _ModalState extends State<Modal> {
                         child: CupertinoSwitch(
                           trackColor: AppColors.v2,
                           activeColor: AppColors.v1,
-                          value: formController.model.isOutFlow!,
+                          value: !formController.model.isOutFlow!,
                           onChanged: (bool value) {
-                            formController.onChanged(isOutFlow: value);
+                            formController.onChanged(isOutFlow: !value);
                           },
                         ),
                       ),
@@ -81,6 +81,7 @@ class _ModalState extends State<Modal> {
                   Row(
                     children: [
                       InputInsert(
+                        keyboardType: TextInputType.number,
                         hintText: "Valor",
                         controller: moneyInputTextController,
                         onChanged: (value) {
@@ -103,6 +104,7 @@ class _ModalState extends State<Modal> {
                   Row(
                     children: [
                       InputInsert(
+                        keyboardType: TextInputType.datetime,
                         hintText: "Data",
                         controller: dateInputTextController,
                         validator: formController.validateDate,
@@ -111,6 +113,7 @@ class _ModalState extends State<Modal> {
                         },
                       ),
                       InputInsert(
+                        keyboardType: TextInputType.number,
                         hintText: "Nº de vezes",
                         validator: formController.validateQty,
                         onChanged: (value) {
